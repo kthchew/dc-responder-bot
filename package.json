@@ -1,0 +1,16 @@
+{
+  "name": "dc-responder-bot",
+  "version": "1.0.0",
+  "description": "A generic Discord bot to respond to certain messages",
+  "main": "src/DCResponder.js",
+  "scripts": {
+    "start": "node src/DCResponder.js",
+    "test": "echo \"Error: I do not have a test yet!\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kenneth Chew",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
