@@ -17,10 +17,20 @@ client.on("message", message => {
 
         let messageMatched = false;
         if (!messageMatched && whitelistedUser.receivedMessageCaseInsensitive !== undefined) {
-            messageMatched = whitelistedUser.receivedMessageCaseInsensitive.toLowerCase() === message.content.toLowerCase()
+            messageMatched = whitelistedUser.receivedMessageCaseInsensitive.toLowerCase() === message.content.toLowerCase();
+            let currentEmbed = 0;
+            while (!messageMatched && currentEmbed < message.embeds.length) {
+                messageMatched = whitelistedUser.receivedMessageCaseInsensitive.toLowerCase() === message.embeds[currentEmbed].description.toLowerCase();
+                currentEmbed++;
+            }
         }
         if (!messageMatched && whitelistedUser.receivedMessageContains !== undefined) {
             messageMatched = message.content.toLowerCase().indexOf(whitelistedUser.receivedMessageContains.toLowerCase()) !== -1;
+            let currentEmbed = 0;
+            while (!messageMatched && currentEmbed < message.embeds.length) {
+                messageMatched = message.embeds[currentEmbed].description.toLowerCase().indexOf(whitelistedUser.receivedMessageContains.toLowerCase()) !== -1;
+                currentEmbed++;
+            }
         }
 
         if (messageMatched) {
