@@ -11,6 +11,8 @@ In the root directory of the project, create a `config.json` file, similar to be
 ```
 {
   "token": "YOUR_TOKEN_HERE",
+  "maximumMessageCount": 10,
+  "maximumMessageIntervalInSeconds": 4,
   "usersToRespondTo": [
     {
       "userID": "USER_YOU_WANT_TO_RESPOND_TO",
