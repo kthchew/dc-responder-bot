@@ -4,21 +4,21 @@ class RespondRule {
      */
     constructor() {
         /**
-         * @type {String}
+         * @type {?String}
          */
         this.userID = null;
         /**
-         * @type {String}
+         * @type {?String}
          */
         this.receivedMessageCaseInsensitive = null;
         /**
-         * @type {String}
+         * @type {?String}
          */
         this.receivedMessageContains = null;
         /**
          * @type {String}
          */
-        this.sendMessage = null;
+        this.sendMessage = 'Looks like someone configured me incorrectly. Please report this issue to them.';
     }
 
     /**
