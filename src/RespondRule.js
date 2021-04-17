@@ -59,4 +59,4 @@ class RespondRule {
     }
 }
 
-module.exports = RespondRule
+module.exports = RespondRule;
