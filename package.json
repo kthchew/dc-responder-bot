@@ -12,5 +12,15 @@
   "license": "MIT",
   "dependencies": {
     "discord.js": "^12.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "node": true,
+      "es2021": true
+    }
   }
 }
