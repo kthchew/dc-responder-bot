@@ -5,7 +5,7 @@
   "main": "src/DCResponder.js",
   "scripts": {
     "start": "node src/DCResponder.js",
-    "test": "echo \"Error: I do not have a test yet!\" && exit 1"
+    "test": "node test/RespondRuleUnitTests.js"
   },
   "keywords": [],
   "author": "Kenneth Chew",
