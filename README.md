@@ -29,6 +29,6 @@ In the root directory of the project, create a `config.json` file, similar to be
 }
 ```
 
-Then, run `npm run start` while in the project directory.
+Then, run `npm install --production` while in the project directory. To start the server, use`npm run start`.
 
 For now, it only responds to a single person per event.
