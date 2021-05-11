@@ -161,8 +161,10 @@ class MockDiscord {
      */
     mockMessageWithEmbed(content, title, description) {
         let embed = new MessageEmbed()
-            .setTitle(title)
-            .setDescription(description);
+            .setTitle(title);
+        if (description !== null) {
+            embed.setDescription(description);
+        }
 
         return new Message(this.client, {
             id: "message-id",

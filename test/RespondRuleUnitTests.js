@@ -10,6 +10,7 @@ const messageNoMatch = discord.mockMessage('completely unrelated message');
 const messageExactMatchEmbed = discord.mockMessageWithEmbed('placeholder', 'title', 'hi there');
 const messagePartialMatchEmbed = discord.mockMessageWithEmbed('placeholder', 'title', 'hi there general kenobi');
 const messageNoMatchEmbed = discord.mockMessageWithEmbed('placeholder', 'title', 'completely unrelated message');
+const messageNoDescEmbed = discord.mockMessageWithEmbed('placeholder', 'title', null);
 
 // TESTS: `receivedMessageContains` rules
 let containsRule = new RespondRule();
@@ -21,6 +22,7 @@ assert.strictEqual(containsRule.matches(messageNoMatch), false, "receivedMessage
 assert.strictEqual(containsRule.matches(messageExactMatchEmbed), true, "receivedMessageContains: Message with embed containing exact match does not have expected behavior.");
 assert.strictEqual(containsRule.matches(messagePartialMatchEmbed), true, "receivedMessageContains: Message with embed containing partial match does not have expected behavior.");
 assert.strictEqual(containsRule.matches(messageNoMatchEmbed), false, "receivedMessageContains: Message with embed containing no match does not have expected behavior.");
+assert.strictEqual(containsRule.matches(messageNoDescEmbed), false, "receivedMessageContains: Message with embed containing no description (and thus no match) does not have expected behavior.");
 
 // TESTS: `receivedMessageCaseInsensitive` rules
 let caseInsensitiveRule = new RespondRule();
@@ -32,6 +34,7 @@ assert.strictEqual(caseInsensitiveRule.matches(messageNoMatch), false, "received
 assert.strictEqual(caseInsensitiveRule.matches(messageExactMatchEmbed), true, "receivedMessageCaseInsensitive: Message with exact match does not have expected behavior.");
 assert.strictEqual(caseInsensitiveRule.matches(messagePartialMatchEmbed), false, "receivedMessageCaseInsensitive: Message with partial match does not have expected behavior.");
 assert.strictEqual(caseInsensitiveRule.matches(messageNoMatchEmbed), false, "receivedMessageCaseInsensitive: Message with no match does not have expected behavior.");
+assert.strictEqual(caseInsensitiveRule.matches(messageNoDescEmbed), false, "receivedMessageCaseInsensitive: Message with embed containing no description (and thus no match) does not have expected behavior.");
 
 // TODO: tests for user and sending messages
 

@@ -42,7 +42,7 @@ class RespondRule {
         if (!messageMatched && this.receivedMessageCaseInsensitive !== null) {
             messageMatched = this.receivedMessageCaseInsensitive.toLowerCase() === message.content.toLowerCase();
             let currentEmbed = 0;
-            while (!messageMatched && currentEmbed < message.embeds.length) {
+            while (!messageMatched && currentEmbed < message.embeds.length && message.embeds[currentEmbed].description !== null) {
                 messageMatched = this.receivedMessageCaseInsensitive.toLowerCase() === message.embeds[currentEmbed].description.toLowerCase();
                 currentEmbed++;
             }
@@ -50,7 +50,7 @@ class RespondRule {
         if (!messageMatched && this.receivedMessageContains !== null) {
             messageMatched = message.content.toLowerCase().indexOf(this.receivedMessageContains.toLowerCase()) !== -1;
             let currentEmbed = 0;
-            while (!messageMatched && currentEmbed < message.embeds.length) {
+            while (!messageMatched && currentEmbed < message.embeds.length && message.embeds[currentEmbed].description !== null) {
                 messageMatched = message.embeds[currentEmbed].description.toLowerCase().indexOf(this.receivedMessageContains.toLowerCase()) !== -1;
                 currentEmbed++;
             }
