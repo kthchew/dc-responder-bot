@@ -1,6 +1,6 @@
 // Based on code from https://github.com/discordjs/discord.js/issues/3576#issuecomment-625197611, modified.
 
-const {Channel, Client, Guild, GuildChannel, GuildMember, Message, MessageEmbed, TextChannel, User} = require("discord.js");
+const {Channel, Client, ClientOptions, Guild, GuildChannel, GuildMember, Intents, Message, MessageEmbed, TextChannel, User} = require("discord.js");
 
 class MockDiscord {
     constructor() {
@@ -11,7 +11,10 @@ class MockDiscord {
         this.mockTextChannel();
         this.mockUser();
         this.mockGuildMember();
-        this.guild.addMember(this.user, {accessToken: "mockAccessToken"});
+        this.guild.members.add(this.user, {accessToken: "mockAccessToken"}).catch(r => {
+            console.error("Failed to add mock user to guild: " + r);
+            process.exit(1);
+        });
     }
 
     getClient() {
@@ -43,7 +46,7 @@ class MockDiscord {
     }
 
     mockClient() {
-        this.client = new Client();
+        this.client = new Client({intents: Intents.FLAGS.GUILD_MESSAGES});
     }
 
     mockGuild() {
