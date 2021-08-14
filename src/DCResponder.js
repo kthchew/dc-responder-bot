@@ -3,7 +3,7 @@ const config = require('../config.json');
 let rules;
 
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({intents: [Discord.Intents.FLAGS.GUILD_MESSAGES]});
 
 const RespondRule = require('./RespondRule.js');
 
