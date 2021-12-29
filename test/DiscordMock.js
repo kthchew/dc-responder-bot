@@ -135,7 +135,7 @@ class MockDiscord {
      */
     mockMessage(content) {
         return new Message(this.client, {
-            id: "message-id",
+            id: 0,
             type: "DEFAULT",
             content: content,
             author: this.user,
@@ -170,7 +170,7 @@ class MockDiscord {
         }
 
         return new Message(this.client, {
-            id: "message-id",
+            id: 0,
             type: "DEFAULT",
             content: content,
             author: this.user,
